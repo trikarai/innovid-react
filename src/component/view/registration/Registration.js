@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
+
+import Form from "react-bootstrap/Form";
+
 export default class Registration extends Component {
   constructor(props) {
     super(props);
@@ -57,8 +60,8 @@ export default class Registration extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className="container">
+        <Form onSubmit={this.handleSubmit}>
           <input
             type="text"
             name="incubatorIdentifier"
@@ -80,6 +83,7 @@ export default class Registration extends Component {
           <input
             type="email"
             name="email"
+            autoComplete="email"
             placeholder="email"
             value={this.state.email}
             onChange={this.handleChange}
@@ -88,6 +92,7 @@ export default class Registration extends Component {
           <br />
           <input
             type="password"
+            autoComplete="current-password"
             name="password"
             placeholder="password"
             value={this.state.password}
@@ -105,7 +110,7 @@ export default class Registration extends Component {
           ></input> */}
           <br />
           <button type="submit">Regist</button>
-        </form>
+        </Form>
         <div>{this.state.registrationError}</div>
       </div>
     );
